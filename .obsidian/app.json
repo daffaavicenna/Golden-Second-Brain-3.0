@@ -4,6 +4,5 @@
   "promptDelete": false,
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": false,
-  "showInlineTitle": true,
-  "showRibbon": true
+  "showInlineTitle": true
 }
