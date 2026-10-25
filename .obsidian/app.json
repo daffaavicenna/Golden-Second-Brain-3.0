@@ -1,0 +1,9 @@
+{
+  "attachmentFolderPath": "_attachments",
+  "newFileFolderPath": "01 Inbox",
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": false,
+  "showInlineTitle": true,
+  "showRibbon": true
+}

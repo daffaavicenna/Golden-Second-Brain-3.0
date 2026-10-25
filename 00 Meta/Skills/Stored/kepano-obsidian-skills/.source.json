@@ -1,0 +1,10 @@
+{
+  "name": "kepano-obsidian-skills",
+  "author": "Steph Ango (kepano)",
+  "upstream_url": "https://github.com/kepano/obsidian-skills",
+  "installed_at": "2026-10-25",
+  "commit_hash": "3ccff5338ea700537839b21900aa5358a0402c98",
+  "last_audit_date": "2026-10-25",
+  "status": "active",
+  "description": "Official Agent Skills for Obsidian: Obsidian-Flavored Markdown, JSON Canvas, Bases, CLI, Defuddle, Knap."
+}
