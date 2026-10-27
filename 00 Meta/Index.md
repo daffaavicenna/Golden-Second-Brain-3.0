@@ -16,7 +16,7 @@ updated: 2026-10-25
 
 | Concept | One-Line Summary | Added |
 | :--- | :--- | :--- |
-| *(Catalog begins empty - populate via `/ingest`)* | | |
+| *(Catalog begins empty - populate via ingestion or `/new-concept`)* | | |
 
 ---
 
@@ -25,7 +25,7 @@ updated: 2026-10-25
 
 | Entity | Domain / Category | One-Line Summary | Added |
 | :--- | :--- | :--- | :--- |
-| [[03 Wiki/Entities/User Profile\|User Profile]] | Personal / Meta | Core directives, active projects, and cognitive profile | 2026-10-25 |
+| *(Catalog begins empty - populate via `/new-entity`)* | | |
 
 ---
 
@@ -34,7 +34,7 @@ updated: 2026-10-25
 
 | Source Document | Author / Origin | Type | Added |
 | :--- | :--- | :--- | :--- |
-| *(Catalog begins empty - populate via `/ingest`)* | | | |
+| *(Catalog begins empty - populate via `/ingest`)* | | |
 
 ---
 

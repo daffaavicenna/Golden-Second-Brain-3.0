@@ -12,4 +12,3 @@ This file is an append-only chronological record of all major operations (ingest
   - `00 Meta/Skills/Registry.md`, `00 Meta/Skills/Stored/kepano-obsidian-skills`
   - `00 Meta/Chats/README.md`, `00 Meta/Chats/_Template - Session.md`
   - `00 Meta/Templates/Web Clipper/README.md`
-  - `03 Wiki/Entities/User Profile.md`
