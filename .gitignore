@@ -11,7 +11,7 @@ desktop.ini
 *.tmp
 *.bak
 
-# Node & package manager artifacts (if any tools are used locally)
+# Node & package manager artifacts
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -21,3 +21,18 @@ pnpm-debug.log*
 .env
 .env.local
 *.local
+
+# Heavy raw book archives & media
+05 Archive/**/*.pdf
+05 Archive/**/*.epub
+05 Archive/**/*.mobi
+01 Inbox/**/*.pdf
+01 Inbox/**/*.epub
+
+# Local Private Wiki Content & Logs (Preserves structure template for public GitHub)
+03 Wiki/Summaries/*
+03 Wiki/Concepts/*
+03 Wiki/Entities/User Profile.md
+00 Meta/Ingest Queue.md
+!03 Wiki/Summaries/.gitkeep
+!03 Wiki/Concepts/.gitkeep
