@@ -29,10 +29,14 @@ pnpm-debug.log*
 01 Inbox/**/*.pdf
 01 Inbox/**/*.epub
 
+# Personal & Private Entities (Do not commit to public repository)
+03 Wiki/Entities/
+05 Archive/Persona/
+05 Archive/SOUL.md
+
 # Local Private Wiki Content & Logs (Preserves structure template for public GitHub)
 03 Wiki/Summaries/*
 03 Wiki/Concepts/*
-03 Wiki/Entities/User Profile.md
 00 Meta/Ingest Queue.md
 !03 Wiki/Summaries/.gitkeep
 !03 Wiki/Concepts/.gitkeep
