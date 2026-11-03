@@ -1,0 +1,15 @@
+{
+  "id": "reverysky-map",
+  "name": "ReverySky 3D Graph",
+  "version": "1.5.1",
+  "minAppVersion": "1.12.7",
+  "description": "Explore your vault through an immersive Unity-powered 3D graph.",
+  "author": "MoonSkorch Studio",
+  "authorUrl": "https://github.com/moonskorch",
+  "helpUrl": "https://github.com/moonskorch/ReverySky-Plugin",
+  "fundingUrl": {
+    "Boosty": "https://boosty.to/reverysky/donate",
+    "Crypto": "https://moonskorch.github.io/reverysky/support.html#crypto"
+  },
+  "isDesktopOnly": true
+}

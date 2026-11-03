@@ -1,0 +1,539 @@
+/* Graph Styler — panel styling (dynamic swatch colors stay inline in main.js) */
+
+.graph-styler-panel {
+  padding: 14px;
+}
+
+.graph-styler-panel .gs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.graph-styler-panel .gs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.graph-styler-panel .gs-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Active theme: accent frame inside the button, a tint, a bold name and a check — none of it relies on colour alone.
+   The keyboard focus ring below stays outside the button with a gap, so the two read differently. */
+.graph-styler-panel .gs-btn.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 18%, var(--interactive-normal));
+  box-shadow: inset 0 0 0 2px var(--interactive-accent);
+}
+
+.graph-styler-panel .gs-btn.is-active .gs-btn-label {
+  font-weight: 600;
+}
+
+.graph-styler-panel .gs-btn.is-active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 5px;
+  height: 10px;
+  margin-top: -8px;
+  border-right: 2px solid var(--interactive-accent);
+  border-bottom: 2px solid var(--interactive-accent);
+  transform: rotate(45deg);
+}
+
+/* My presets rows: keep the check clear of the copy and delete buttons */
+.graph-styler-panel .gs-preset-row .gs-btn.is-active::after {
+  right: 72px;
+}
+
+.graph-styler-panel .gs-btn:focus-visible,
+.graph-styler-panel .gs-group > summary:focus-visible,
+.graph-styler-panel .gs-share:focus-visible,
+.graph-styler-panel .gs-del:focus-visible,
+.graph-styler-panel .gs-restore:focus-visible,
+.graph-styler-panel .gs-save:focus-visible,
+.graph-styler-panel .gs-import:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+/* a long name shrinks to an ellipsis (the full name is the button's title) instead of pushing the swatch out of the button */
+.graph-styler-panel .gs-btn-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* theme grid: swatch above the name so two columns fit a narrow sidebar */
+.graph-styler-panel .gs-grid .gs-btn {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  height: auto;
+  padding: 9px 10px;
+}
+
+.graph-styler-panel .gs-grid .gs-btn-label {
+  flex: none;
+  max-width: 100%;
+}
+
+.graph-styler-panel .gs-swatch {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 3px;
+}
+
+.graph-styler-panel .gs-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* My-presets row: the copy/delete buttons sit over the right end of the preset button as siblings */
+.graph-styler-panel .gs-preset-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* the name ends left of the active check (right: 72px, about 13px wide once rotated) and the copy and delete buttons */
+.graph-styler-panel .gs-preset-row .gs-btn {
+  padding-right: 92px;
+}
+
+.graph-styler-panel .gs-share,
+.graph-styler-panel .gs-del {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  padding: 2px 4px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  font-size: 11px;
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.graph-styler-panel .gs-share {
+  right: 34px;
+}
+
+.graph-styler-panel .gs-del {
+  right: 10px;
+}
+
+.graph-styler-panel .gs-share:hover,
+.graph-styler-panel .gs-del:hover,
+.graph-styler-panel .gs-share:focus-visible,
+.graph-styler-panel .gs-del:focus-visible {
+  opacity: 1;
+}
+
+.graph-styler-panel .gs-section {
+  margin: 16px 2px 4px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.graph-styler-panel .gs-note {
+  margin: 4px 2px 8px;
+  font-size: 11px;
+  line-height: 1.45;
+  opacity: 0.72;
+}
+
+.graph-styler-panel .gs-footer {
+  margin-top: 18px;
+  text-align: center;
+}
+
+/* Restore is a quiet text button: it acts on the whole vault but is rarely wanted */
+.graph-styler-panel .gs-restore {
+  height: auto;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.graph-styler-panel .gs-restore:hover {
+  color: var(--text-normal);
+  background: transparent;
+}
+
+.graph-styler-panel .gs-restore-note {
+  margin: 2px 2px 0;
+}
+
+/* collapsible groups: Customize, Share code, Export image (and nested "More options") */
+.graph-styler-panel .gs-group {
+  margin-top: 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m, 6px);
+}
+
+.graph-styler-panel .gs-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.graph-styler-panel .gs-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.graph-styler-panel .gs-group > summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin: -3px 3px 0 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.55;
+  transform: rotate(45deg);
+  transition: transform 120ms ease;
+}
+
+.graph-styler-panel .gs-group[open] > summary::after {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.graph-styler-panel .gs-group > summary:hover {
+  background: var(--background-modifier-hover);
+}
+
+.graph-styler-panel .gs-group-body {
+  padding: 0 12px 10px;
+}
+
+.graph-styler-panel .gs-group-body .gs-note {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.graph-styler-panel .gs-group-body > .gs-note:first-child {
+  margin-top: 0;
+}
+
+.graph-styler-panel .gs-sub {
+  margin-top: 4px;
+  border-width: 1px 0 0;
+  border-radius: 0;
+}
+
+.graph-styler-panel .gs-sub > summary {
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.graph-styler-panel .gs-sub > summary:hover {
+  background: transparent;
+}
+
+.graph-styler-panel .gs-sub > .gs-group-body {
+  padding: 0 0 4px;
+}
+
+.graph-styler-panel .gs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.graph-styler-panel .gs-check {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.graph-styler-panel .gs-row-label {
+  flex: 0 0 84px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.graph-styler-panel .gs-3d-center-row {
+  display: block !important;
+  width: 100%;
+}
+
+.graph-styler-panel .gs-3d-center-section {
+  display: block !important;
+  width: 100%;
+}
+
+.graph-styler-panel .gs-3d-center-section > .gs-row-label {
+  display: block !important;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 6px;
+}
+
+.graph-styler-panel .gs-3d-center-section > .gs-3d-center-row { clear: both; }
+
+.graph-styler-panel .gs-center-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 8px;
+}
+
+.graph-styler-panel .gs-center-controls button {
+  width: 100%;
+  min-width: 0;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.graph-styler-panel .gs-row input[type="range"] {
+  flex: 1;
+}
+
+.graph-styler-panel .gs-row select,
+.graph-styler-panel .gs-3d-center {
+  flex: 1;
+  min-width: 0;
+}
+
+.graph-styler-panel .gs-export-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.gs-center-status {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+  margin: 6px 0;
+}
+
+.gs3d-center-status {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  max-width: calc(100% - 24px);
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  background: var(--background-primary);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.gs3d-center-status:empty { display: none; }
+
+.graph-styler-panel .gs-caption-items {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+/* export: one short line under each option, then the buttons, then where the last image went */
+.graph-styler-panel .gs-export-hint {
+  margin: -4px 2px 10px;
+}
+
+.graph-styler-panel .gs-folder-row,
+.graph-styler-panel .gs-caption-row {
+  flex-wrap: wrap;
+}
+
+.graph-styler-panel .gs-folder {
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+/* the two buttons share the row; in a narrow sidebar the second drops below instead of overflowing */
+.graph-styler-panel .gs-export-actions {
+  flex-wrap: wrap;
+}
+
+.graph-styler-panel .gs-export-actions .gs-export,
+.graph-styler-panel .gs-export-actions .gs-copy-image {
+  flex: 1 1 auto;
+}
+
+.graph-styler-panel .gs-last-export {
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+  opacity: 0.9;
+}
+
+.gs-notice-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.graph-styler-panel .gs-colors {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.graph-styler-panel input[type="color"] {
+  width: 30px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.graph-styler-panel .gs-name,
+.graph-styler-panel .gs-code {
+  flex: 1;
+}
+
+.graph-styler-panel .gs-save,
+.graph-styler-panel .gs-import {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.graph-styler-panel .gs-open-3d {
+  width: 100%;
+  margin: 4px 0;
+}
+
+.graph-styler-panel .gs-open-3d:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+/* credit — small, elegant italic serif, bottom of the panel */
+.graph-styler-panel .gs-credit {
+  margin-top: 24px;
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-style: italic;
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  opacity: 0.42;
+  transition: opacity 160ms ease;
+}
+
+.graph-styler-panel .gs-credit:hover {
+  opacity: 0.85;
+}
+
+.graph-styler-panel .gs-credit a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+/* 3D graph (experimental): the canvas fills the tab; the label follows the hovered note */
+.workspace-leaf-content[data-type="graph-styler-3d"] .view-content.gs3d-view {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.gs3d-view .gs3d-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+
+.gs3d-view .gs3d-canvas:active {
+  cursor: grabbing;
+}
+
+.gs3d-view .gs3d-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 2px 8px;
+  border-radius: var(--radius-s, 4px);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small, 12px);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: var(--shadow-s);
+}
+
+.gs3d-view .gs3d-label.is-shown {
+  opacity: 0.92;
+}
+
+.gs3d-view .gs3d-rotation {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  min-height: 32px;
+  padding: 6px 12px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s, 4px);
+}
+
+.gs3d-view .gs3d-rotation:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+.gs3d-view .gs3d-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.gs3d-refresh {
+  position: absolute;
+  top: 56px;
+  left: 12px;
+  z-index: 2;
+  max-width: calc(100% - 24px);
+  height: auto;
+  white-space: normal;
+}

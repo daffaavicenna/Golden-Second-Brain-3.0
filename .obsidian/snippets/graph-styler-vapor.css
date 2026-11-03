@@ -1,0 +1,33 @@
+/* graph-styler :: vapor (auto-generated) */
+.theme-dark .workspace-leaf-content[data-type="graph"] .view-content,
+.theme-light .workspace-leaf-content[data-type="graph"] .view-content,
+.theme-dark .workspace-leaf-content[data-type="localgraph"] .view-content,
+.theme-light .workspace-leaf-content[data-type="localgraph"] .view-content {
+  background: radial-gradient(circle at 50% 42%, rgba(42,10,63,0.92) 0%, rgba(26,10,51,0.97) 48%, #0c0518 100%) !important;
+}
+.theme-dark .graph-view.color-circle,
+.theme-light .graph-view.color-circle { color: #ff7ad9; }
+.theme-dark .graph-view.color-fill,
+.theme-light .graph-view.color-fill { color: #7afcff; }
+.theme-dark .graph-view.color-fill-tag,
+.theme-light .graph-view.color-fill-tag { color: #b39dff; }
+.theme-dark .graph-view.color-fill-unresolved,
+.theme-light .graph-view.color-fill-unresolved { color: #241033; }
+.theme-dark .graph-view.color-fill-focused,
+.theme-light .graph-view.color-fill-focused { color: #ffffff; }
+.theme-dark .graph-view.color-line,
+.theme-light .graph-view.color-line { color: #5b2f7a; }
+.theme-dark .graph-view.color-text,
+.theme-light .graph-view.color-text { color: #ffe6fb; }
+.theme-dark .workspace-leaf-content[data-type="graph"] .view-content > iframe,
+.theme-light .workspace-leaf-content[data-type="graph"] .view-content > iframe,
+.theme-dark .workspace-leaf-content[data-type="localgraph"] .view-content > iframe,
+.theme-light .workspace-leaf-content[data-type="localgraph"] .view-content > iframe,
+.theme-dark .workspace-leaf-content[data-type="graph"] .view-content > canvas,
+.theme-light .workspace-leaf-content[data-type="graph"] .view-content > canvas,
+.theme-dark .workspace-leaf-content[data-type="localgraph"] .view-content > canvas,
+.theme-light .workspace-leaf-content[data-type="localgraph"] .view-content > canvas { filter: brightness(1.35) contrast(1.1) saturate(1.6); }
+.theme-dark .workspace-leaf-content[data-type="graph"] .view-content > canvas ~ iframe,
+.theme-light .workspace-leaf-content[data-type="graph"] .view-content > canvas ~ iframe,
+.theme-dark .workspace-leaf-content[data-type="localgraph"] .view-content > canvas ~ iframe,
+.theme-light .workspace-leaf-content[data-type="localgraph"] .view-content > canvas ~ iframe { pointer-events: none; }

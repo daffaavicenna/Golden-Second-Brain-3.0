@@ -1,3 +1,6 @@
 {
-  "showRibbon": true
+  "showRibbon": true,
+  "enabledCssSnippets": [
+    "graph-styler-custom-1792968027858"
+  ]
 }

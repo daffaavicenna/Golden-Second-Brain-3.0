@@ -1,0 +1,76 @@
+{
+  "custom": [
+    {
+      "id": "custom-1792967973520",
+      "label": "GALAXENNA 1",
+      "colors": [
+        "#ee00ff",
+        "#f0c466",
+        "#00ccaa",
+        "#ff0000"
+      ],
+      "bg": "#000000",
+      "glow": 80,
+      "forces": {
+        "node": 0.8,
+        "repel": 9,
+        "dist": 145,
+        "center": 0.387096774193548,
+        "linkS": 0.96,
+        "line": 0.7,
+        "fade": 0
+      },
+      "view": {
+        "search": "",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "showArrow": false
+      }
+    },
+    {
+      "id": "custom-1792968027858",
+      "label": "GALAXENNA 2",
+      "colors": [
+        "#ee00ff",
+        "#f38ba8",
+        "#a6e3a1",
+        "#89b4fa"
+      ],
+      "bg": "#0a0a0b",
+      "glow": 80,
+      "forces": {
+        "node": 0.8,
+        "repel": 9,
+        "dist": 145,
+        "center": 0.387096774193548,
+        "linkS": 0.96,
+        "line": 0.7,
+        "fade": 0
+      },
+      "view": {
+        "search": "",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "showArrow": false
+      }
+    }
+  ],
+  "graph3dLook": "original",
+  "graph3dLayout": "force",
+  "resumeSnippet": null,
+  "experimental3d": true,
+  "exportOptions": {
+    "fit": false,
+    "aspect": "original",
+    "caption": {
+      "date": false,
+      "notes": false,
+      "preset": false
+    }
+  },
+  "rotate3d": true
+}
